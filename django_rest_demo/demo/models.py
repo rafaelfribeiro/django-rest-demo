@@ -31,3 +31,14 @@ class ClientUser(models.Model):
         Sao_Paulo = 'São Paulo (SP)'
         Sergipe = 'Sergipe (SE)'
         Tocantins = 'Tocantins (TO)'
+    
+    name = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50, choices=EstadoChoice.choices, default=EstadoChoice.Acre)
+    cep = models.CharField(max_length=10)
+    start_date = models.CharField(max_length=25)
+    end_date = models.CharField(max_length=25)
+    list_date = models.DateTimeField(default=now, blank=True)
+
+    def __str__(self):
+        return self.name        
